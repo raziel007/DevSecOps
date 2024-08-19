@@ -1,2 +1,43 @@
 Setting up a DAST VM
 https://gist.github.com/raziel007/d31877b7b539dfb6ccfbe9eabefd2bd3
+DAST
+
+Here's a summary of a how-to guide for running dynamic application security testing (DAST) using OWASP ZAP:
+
+How to Run Dynamic Application Security Testing with OWASP ZAP
+
+Set up a target application:
+
+Use OWASP Juice Shop as an example https://github.com/juice-shop/juice-shop sudo docker pull bkimminich/juice-shop
+
+Run it locally using Docker (command provided in Juice Shop's GitHub) sudo docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+
+Verify the target application is running:
+
+Access it through a web browser (e.g., localhost:3000) http://localhost:3000 http://192.168.99.100:3000
+Install and run OWASP ZAP: sudo docker pull ghcr.io/zaproxy/zaproxy:stable sudo docker pull zaproxy/zap-stable
+
+Use the OWASP ZAP baseline scan Docker container
+Find the command on the OWASP ZAP website or documentation docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://localhost:3000
+Configure the scan:
+
+Use your machine's IP address instead of 'localhost' if running in Docker
+Find your IP using 'ifconfig' or similar command sudo apt install net-tools
+Run the scan:
+
+Execute the OWASP ZAP Docker command with the correct IP and port
+Analyze the results:
+
+Review the console output for passed and failed tests
+Focus on the warnings and failures at the bottom of the output
+Investigate specific issues:
+
+Use the OWASP ZAP Alerts website to get more details on each issue
+Look up alert IDs for comprehensive information
+Verify findings:
+
+Use browser developer tools to confirm issues (e.g., missing headers)
+Consider additional features:
+
+OWASP ZAP supports whitelisting for false positives
+Note: This process demonstrates DAST by testing a running web application, as opposed to static code analysis. The focus is on understanding the OWASP ZAP tool and interpreting its results.
