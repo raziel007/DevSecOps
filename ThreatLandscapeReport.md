@@ -1,0 +1,9 @@
+| Threat Actor | Motivation | Potential Attack Vectors | Possible Impact | Affected Systems |
+|--------------|------------|--------------------------|-----------------|------------------|
+| Cybercriminals | Financial gain, Data theft | - Phishing attacks<br>- Ransomware<br>- SQL injection<br>- Credential stuffing | - Data breach<br>- Financial loss<br>- Reputation damage | All three apps |
+| Nation-state actors | Intelligence gathering, Espionage | - Advanced Persistent Threats (APTs)<br>- Zero-day exploits<br>- Supply chain attacks | - Large-scale data theft<br>- System compromise<br>- Intellectual property theft | All three apps, especially CareConnect360 |
+| Insider threats | Revenge, Financial gain | - Unauthorized data access<br>- Data exfiltration<br>- Privilege escalation | - Data leakage<br>- Compliance violations<br>- Reputational damage | All three apps |
+| Hacktivists | Ideological motivations | - DDoS attacks<br>- Website defacement<br>- Data leaks | - Service disruption<br>- Reputational damage<br>- Public embarrassment | Primarily CareConnect360 and HealthHub Mobile |
+| Opportunistic hackers | Curiosity, Skill demonstration | - Vulnerability scanning<br>- Brute force attacks<br>- Exploiting misconfigurations | - System breaches<br>- Data exposure<br>- Reputational damage | All three apps, especially public-facing components |
+| Organized crime | Financial gain, Data theft for fraud | - Targeted phishing<br>- Social engineering<br>- Malware distribution | - Large-scale data theft<br>- Financial fraud<br>- Identity theft | All three apps, especially MedTrack Pro for prescription data |
+| Malicious third parties | Competitive advantage, Sabotage | - API abuse<br>- Man-in-the-middle attacks<br>- Malicious updates | - Data manipulation<br>- Service disruption<br>- Loss of trust | Integration points between the three apps |
