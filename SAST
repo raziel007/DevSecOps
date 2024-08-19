@@ -1,48 +1,49 @@
-SAST Testing
+ SAST Testing
 https://gist.github.com/raziel007/f014f2e6fbec2f05c879dc806b70cebe
-SAST Testing
-VM Configuration
+# SAST Testing
+
+## VM Configuration
 Allocate 128 MB VRAM.
 Provide 2 vCPUs to a guest OS.
 Disable 3D Acceleration.
 At least 2 GB of memory.
 Set graphics adapter to VBSVGA.
-Steps
+## Steps
 Update Ubuntu VM
 
-Configure Ubuntu VM to enable GIT CLI:
+## Configure Ubuntu VM to enable GIT CLI:
 sudo apt-get update
 sudo apt-get install git
 Clone OWASP Juice Shop
 
-Clone the repository from GitHub:
+## Clone the repository from GitHub:
 git clone https://github.com/juice-shop/juice-shop.git
 cd juice-shop
 cd frontend  # This will limit the scope of testing
 Install Docker on Ubuntu VM
 
-Use these guides to install Docker on a fresh VM (will also need curl):
+## Use these guides to install Docker on a fresh VM (will also need curl):
 DevOpsCube Guide
 PhoenixNAP Guide
 Take a snapshot of the VM.
 How to Run Static Application Security Testing with HoruSec
 Set up your environment:
 
-Use a virtual machine (e.g., VirtualBox).
+## Use a virtual machine (e.g., VirtualBox).
 Refer to the official tutorial for setup instructions.
 Choose a target application:
 
-For this example, we're using the OWASP Juice Shop (a deliberately vulnerable application).
+## For this example, we're using the OWASP Juice Shop (a deliberately vulnerable application).
 Clone the repository from GitHub:
 git clone https://github.com/juice-shop/juice-shop.git
 Navigate to the target directory:
 
-Use the cd command to enter the cloned repository:
+## Use the cd command to enter the cloned repository:
 cd juice-shop
 cd frontend
 Install and run HoruSec:
 
-Clone the HoruSec repository:
+## Clone the HoruSec repository:
 git clone https://github.com/ZupIT/horusec.git
 Install HoruSec:
 curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
@@ -52,6 +53,6 @@ sudo docker run -v /var/run/docker.sock:/var/run/docker.sock \
 horuszup/horusec-cli:latest horusec start -p /src/horusec -P $(pwd) --config-file-path=/src/horusec/horusec-config.json
 Analyze the results:
 
-Review the summary of vulnerabilities found.
+## Review the summary of vulnerabilities found.
 Examine specific issues, including:
 Language of the vulnerable code.
