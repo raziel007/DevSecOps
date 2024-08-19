@@ -6,3 +6,6 @@ https://sturley96.atlassian.net/jira/your-work
 
 Linkedin Profile
 linkedin.com/in/stuart-turley-7762a9163
+
+Gist
+https://gist.github.com/raziel007
