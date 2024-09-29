@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "terraform_today007"
+    bucket = "gothicrazielsbucket01"
     key    = "terraform.tfstate"
     region = "eu-west-2"
   }
@@ -18,7 +18,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "terraform_today007"
+  bucket = "gothicrazielsbucket01"
 
   lifecycle {
     prevent_destroy = false
