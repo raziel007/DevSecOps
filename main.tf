@@ -1,46 +1,43 @@
-provider "aws" {
-
-  region = "eu-west-2" # London region
-
-}
-
-resource "aws_s3_bucket" "terraform_today" {
-
-  bucket = “gothicrazielsbucket01”
-
-}
-
-resource "aws_s3_bucket" “gothicrazielsbucket01” {
-
-  bucket = “gothicrazielsbucket01”
-
-}
-
 terraform {
-
-  backend "s3" {
-
-    # Replace this with your bucket name!
-
-    bucket         = "gothicrazielsbucket01”
-
-    region         = "eu-west-2"
-
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
   }
 
+  backend "s3" {
+    bucket = "gothicrazielsbucket01"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
 }
 
-resource "aws_instance" “CHANGE” {
+provider "aws" {
+  region = "eu-west-2" # London region
+}
 
-  ami           = "ami-0b0315b28716929af" # Replace with the desired Amazon Linux 2 AMI for eu-west-2 (bitnami image)
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "gothicrazielsbucket01"
 
-  instance_type = "t2.micro"  # Change to the desired instance type
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+resource "aws_s3_bucket_versioning" "terraform_state" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_instance" "example_instance" {
+  ami           = "ami-0b0315b28716929af" # Bitnami image for Amazon Linux 2 in eu-west-2
+  instance_type = "t2.micro"
 
   tags = {
-
-    Name = “CHANGE” 
-
+    Name = "Example Instance"
+  }
 }
-
-}
-
