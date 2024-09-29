@@ -1,3 +1,18 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+
+  backend "s3" {
+    bucket = "gothicrazielsbucket01"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
+}
+
 provider "aws" {
   region = "eu-west-2" # London region
 }
@@ -26,4 +41,3 @@ resource "aws_instance" "example_instance" {
     Name = "Example Instance"
   }
 }
-
