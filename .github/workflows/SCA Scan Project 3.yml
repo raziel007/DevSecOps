@@ -80,7 +80,7 @@ jobs:
 
 
 
-    - name: Run Trivy vulnerability scanner in fs mode
+    - name: Run Trivy vulnerability scanner in config mode
 
       uses: aquasecurity/trivy-action@master
 
@@ -90,7 +90,7 @@ jobs:
 
         scanners: 'vuln'
 
-        image-ref: CHANGE
+        image-ref: wordpress:latest
 
         scan-ref: '.'
 
